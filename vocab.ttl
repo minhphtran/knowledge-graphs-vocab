@@ -6,7 +6,8 @@
 mnh:
     a             rdfs:Resource ;
     rdfs:label    "example vocabulary"@en ;
-    rdfs:comment  "A minimal vocabulary describing people, organisations, locations, interests and websites."@en .
+    rdfs:comment  "A minimal vocabulary describing people, organisations, locations, interests and websites."@en ;
+    rdfs:seeAlso  <https://minhphtran.github.io/knowledge-graphs-vocab/> .
 
 mnh:human
     a             rdfs:Class ;
