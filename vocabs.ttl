@@ -1,0 +1,85 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix mnh: <https://minhphtran.github.io/knowledge-graphs-vocab/vocab#> .
+
+mnh:
+    a             rdfs:Resource ;
+    rdfs:label    "example vocabulary"@en ;
+    rdfs:comment  "A minimal vocabulary describing people, organisations, locations, interests and websites."@en .
+
+mnh:human
+    a             rdfs:Class ;
+    rdfs:label    "Human"@en ;
+    rdfs:comment  "A human being (homo sapiens)."@en .
+
+mnh:organisation
+    a             rdfs:Class ;
+    rdfs:label    "Organisation"@en ;
+    rdfs:comment  "A structured group of people, such as an institution, company or association."@en .
+
+mnh:museum
+    a             rdfs:Class ;
+    rdfs:label    "Museum"@en ;
+    rdfs:comment  "An institution that collects, preserves and exhibits objects of cultural, artistic, scientific or historical significance."@en ;
+    rdfs:subClassOf mnh:organisation .
+
+mnh:interest
+    a             rdfs:Class ;
+    rdfs:label    "Interest"@en ;
+    rdfs:comment  "A topic, activity or entity that a person is interested in."@en .
+
+mnh:cat
+    a             mnh:interest ;
+    rdfs:label    "Cat"@en ;
+    rdfs:comment  "The most superior species in the world."@en .
+
+
+mnh:worksFor
+    a             rdf:Property ;
+    rdfs:label    "works for"@en ;
+    rdfs:comment  "Relates a person to the organisation they work for or are formally affiliated with."@en ;
+    rdfs:domain   mnh:human ;
+    rdfs:range    mnh:organisation .
+
+mnh:knows
+    a             rdf:Property ;
+    rdfs:label    "knows"@en ;
+    rdfs:comment  "Relates a person to another person that they know."@en ;
+    rdfs:domain   mnh:human ;
+    rdfs:range    mnh:human .
+
+mnh:interest
+    a             rdf:Property ;
+    rdfs:label    "interest"@en ;
+    rdfs:comment  "Links a person to something they are interested in. The value can be an Interest resource or a literal string."@en ;
+    rdfs:domain   mnh:human ;
+    rdfs:range    rdfs:Resource .
+
+mnh:name
+    a             rdf:Property ;
+    rdfs:label    "name"@en ;
+    rdfs:comment  "The full name of a person."@en ;
+    rdfs:domain   mnh:human ;
+    rdfs:range    xsd:string .
+
+mnh:email
+    a             rdf:Property ;
+    rdfs:label    "email"@en ;
+    rdfs:comment  "The email address of a person."@en ;
+    rdfs:domain   mnh:human ;
+    rdfs:range    xsd:string .
+
+mnh:location
+    a             rdf:Property ;
+    rdfs:label    "location"@en ;
+    rdfs:comment  "A human-readable description of where a person or organisation is located."@en ;
+    rdfs:domain   rdfs:Resource ;
+    rdfs:range    xsd:string .
+
+mnh:website
+    a             rdf:Property ;
+    rdfs:label    "website"@en ;
+    rdfs:comment  "A URL of a personal website of the person."@en ;
+    rdfs:domain   mnh:human ;
+    rdfs:range    xsd:anyURI .

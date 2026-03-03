@@ -1,0 +1,36 @@
+@prefix jdm: <https://jeroen-demeester.github.io/knowledge-graphs-vocab/vocab#> .
+@prefix dgn: <https://digna-van-nielen.github.io/knowledge-graphs-vocab/vocab#> .
+@prefix mnh: <https://minhphtran.github.io/knowledge-graphs-vocab/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mnh:Minh
+    a mnh:human ;                             
+    mnh:name "Minh Tran" ;   
+    mnh:email "minh.tran@rijksmuseum.nl" ;
+    mnh:worksFor mnh:Rijksmuseum ;
+    mnh:location "Warmenhuizen, North Holland" ;
+    mnh:knows 
+        jdm:Jeroen , 
+        dgn:Digna ;
+    mnh:interest 
+        mnh:cat ,
+        "milk tea" ;
+    mnh:website <https://www.minhphtran.github.io> ;
+.
+
+dgn:Digna
+    a mnh:human ;                             
+    mnh:name "Digna van Nielen" ;
+    mnh:worksFor mnh:Rijksmuseum ; 
+.
+
+mnh:Jeroen
+    a mnh:human ;                             
+    mnh:name "Jeroen De Meester" ;                     
+    mnh:worksFor mnh:Rijksmuseum ;
+.
+
+mnh:Rijksmuseum
+    a mnh:museum ;
+    mnh:location "Amsterdam, North Holland" ;   
+.                         
