@@ -25,16 +25,10 @@ mnh:museum
     rdfs:comment  "An institution that collects, preserves and exhibits objects of cultural, artistic, scientific or historical significance."@en ;
     rdfs:subClassOf mnh:organisation .
 
-mnh:interest
-    a             rdfs:Class ;
-    rdfs:label    "Interest"@en ;
-    rdfs:comment  "A topic, activity or entity that a person is interested in."@en .
-
 mnh:cat
     a             rdfs:Class ;
     rdfs:label    "Cat"@en ;
     rdfs:comment  "The most superior species in the world."@en .
-
 
 mnh:worksFor
     a             rdf:Property ;
@@ -53,9 +47,8 @@ mnh:knows
 mnh:interest
     a             rdf:Property ;
     rdfs:label    "interest"@en ;
-    rdfs:comment  "Links a person to something they are interested in. The value can be an Interest resource or a literal string."@en ;
-    rdfs:domain   mnh:human ;
-    rdfs:range    rdfs:Resource .
+    rdfs:comment  "Links a person to something they are interested in."@en ;
+    rdfs:domain   mnh:human .
 
 mnh:name
     a             rdf:Property ;
@@ -74,7 +67,7 @@ mnh:email
 mnh:location
     a             rdf:Property ;
     rdfs:label    "location"@en ;
-    rdfs:comment  "A human-readable description of where a person or organisation is located."@en ;
+    rdfs:comment  "A human-readable description of where an entity is located."@en ;
     rdfs:domain   rdfs:Resource ;
     rdfs:range    xsd:string .
 

@@ -24,7 +24,7 @@ dgn:Digna
     mnh:worksFor mnh:Rijksmuseum ; 
 .
 
-mnh:Jeroen
+jdm:Jeroen
     a mnh:human ;                             
     mnh:name "Jeroen De Meester" ;                     
     mnh:worksFor mnh:Rijksmuseum ;
