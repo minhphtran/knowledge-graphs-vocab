@@ -31,7 +31,7 @@ mnh:interest
     rdfs:comment  "A topic, activity or entity that a person is interested in."@en .
 
 mnh:cat
-    a             mnh:interest ;
+    a             rdfs:Class ;
     rdfs:label    "Cat"@en ;
     rdfs:comment  "The most superior species in the world."@en .
 
