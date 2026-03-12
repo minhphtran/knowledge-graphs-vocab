@@ -10,7 +10,7 @@
     mnh:location "Warmenhuizen, North Holland" ;
     mnh:knows 
         <https://jeroen-demeester.github.io/knowledge-graphs-vocab/data.ttl#Jeroen> , 
-        <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon> ;
+        <https://drsteiner.github.io/knowledgegraph/person.ttl#Steiny> ;
     mnh:interest 
         mnh:cat ,
         "milk tea" ;
