@@ -10,7 +10,7 @@
     mnh:location "Warmenhuizen, North Holland" ;
     mnh:knows 
         <https://jeroen-demeester.github.io/knowledge-graphs-vocab/data.ttl#Jeroen> , 
-        <https://example.org/Digna> ;
+        <https://raw.githubusercontent.com/mcas.ms/dignavn/kg-lab/refs/heads/main/assignments/lab2/data.ttl#Digna> ;
     mnh:interest 
         mnh:cat ,
         "milk tea" ;
