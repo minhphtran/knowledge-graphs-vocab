@@ -1,5 +1,5 @@
-@base <https://minhphtran.github.io/knowledge-graphs-vocab/data> .
-@prefix mnh: <https://minhphtran.github.io/knowledge-graphs-vocab/vocab#> .
+@base <https://minhphtran.github.io/knowledge-graphs-vocab/data.ttl> .
+@prefix mnh: <https://minhphtran.github.io/knowledge-graphs-vocab/vocab.ttl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <#Minh>
@@ -14,7 +14,7 @@
     mnh:interest 
         mnh:cat ,
         "milk tea" ;
-    mnh:website <https://www.minhphtran.github.io> ;
+    mnh:website <https://minhphtran.github.io> ;
 .
 
 mnh:Rijksmuseum
