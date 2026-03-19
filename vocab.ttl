@@ -1,79 +1,148 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix mnh: <https://minhphtran.github.io/knowledge-graphs-vocab/vocab.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix mnh:  <https://minhphtran.github.io/knowledge-graphs-vocab/vocab.ttl#> .
 
 mnh:
-    a             rdfs:Resource ;
-    rdfs:label    "example vocabulary"@en ;
-    rdfs:comment  "A minimal vocabulary describing people, organisations, locations, interests and websites."@en ;
-    rdfs:seeAlso  <https://minhphtran.github.io/knowledge-graphs-vocab/> .
+    a rdfs:Resource ;
+    rdfs:label "Minh's vocabulary"@en ;
+    rdfs:comment "A vocabulary for describing people, organisations, places, photographs, and depicted subjects."@en ;
+    rdfs:seeAlso <https://minhphtran.github.io/knowledge-graphs-vocab/> .
 
-mnh:human
-    a             rdfs:Class ;
-    rdfs:label    "Human"@en ;
-    rdfs:comment  "A human being (homo sapiens)."@en .
+### Classes
 
-mnh:organisation
-    a             rdfs:Class ;
-    rdfs:label    "Organisation"@en ;
-    rdfs:comment  "A structured group of people, such as an institution, company or association."@en .
+mnh:Human
+    a rdfs:Class ;
+    rdfs:label "Human"@en ;
+    rdfs:comment "A human being."@en ;
+    rdfs:subClassOf foaf:Person .
 
-mnh:museum
-    a             rdfs:Class ;
-    rdfs:label    "Museum"@en ;
-    rdfs:comment  "An institution that collects, preserves and exhibits objects of cultural, artistic, scientific or historical significance."@en ;
-    rdfs:subClassOf mnh:organisation .
+mnh:Organisation
+    a rdfs:Class ;
+    rdfs:label "Organisation"@en ;
+    rdfs:comment "A structured group such as an institution, company, or association."@en .
 
-mnh:cat
-    a             rdfs:Class ;
-    rdfs:label    "Cat"@en ;
-    rdfs:comment  "The most superior species in the world."@en .
+mnh:Museum
+    a rdfs:Class ;
+    rdfs:label "Museum"@en ;
+    rdfs:comment "An institution that collects, preserves and exhibits objects of cultural, artistic, scientific or historical significance."@en ;
+    rdfs:subClassOf mnh:Organisation .
 
-mnh:worksFor
-    a             rdf:Property ;
-    rdfs:label    "works for"@en ;
-    rdfs:comment  "Relates a person to the organisation they work for or are formally affiliated with."@en ;
-    rdfs:domain   mnh:human ;
-    rdfs:range    mnh:organisation .
+mnh:Location
+    a rdfs:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "A place or geographic location."@en .
 
-mnh:knows
-    a             rdf:Property ;
-    rdfs:label    "knows"@en ;
-    rdfs:comment  "Relates a person to another person that they know."@en ;
-    rdfs:domain   mnh:human ;
-    rdfs:range    mnh:human .
+mnh:Photo
+    a rdfs:Class ;
+    rdfs:label "Photo"@en ;
+    rdfs:comment "A photographic image."@en ;
+    rdfs:subClassOf foaf:Image .
 
-mnh:interest
-    a             rdf:Property ;
-    rdfs:label    "interest"@en ;
-    rdfs:comment  "Links a person to something they are interested in."@en ;
-    rdfs:domain   mnh:human .
+mnh:Café
+    a rdfs:Class ;
+    rdfs:label "Café"@en ;
+    rdfs:comment "A café or coffee house."@en .
+
+mnh:Cat
+    a rdfs:Class ;
+    rdfs:label "Cat"@en ;
+    rdfs:comment "A cat."@en .
+
+### Properties
 
 mnh:name
-    a             rdf:Property ;
-    rdfs:label    "name"@en ;
-    rdfs:comment  "The full name of a person."@en ;
-    rdfs:domain   mnh:human ;
-    rdfs:range    xsd:string .
+    a rdf:Property ;
+    rdfs:label "name"@en ;
+    rdfs:comment "The name of a resource."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:name .
 
-mnh:email
-    a             rdf:Property ;
-    rdfs:label    "email"@en ;
-    rdfs:comment  "The email address of a person."@en ;
-    rdfs:domain   mnh:human ;
-    rdfs:range    xsd:string .
-
-mnh:location
-    a             rdf:Property ;
-    rdfs:label    "location"@en ;
-    rdfs:comment  "A human-readable description of where an entity is located."@en ;
-    rdfs:domain   rdfs:Resource ;
-    rdfs:range    xsd:string .
+mnh:knows
+    a rdf:Property ;
+    rdfs:label "knows"@en ;
+    rdfs:comment "Relates one person to another person they know."@en ;
+    rdfs:domain mnh:Human ;
+    rdfs:range mnh:Human ;
+    rdfs:subPropertyOf foaf:knows .
 
 mnh:website
-    a             rdf:Property ;
-    rdfs:label    "website"@en ;
-    rdfs:comment  "A URL of a personal website of the person."@en ;
-    rdfs:domain   mnh:human ;
-    rdfs:range    xsd:anyURI .
+    a rdf:Property ;
+    rdfs:label "website"@en ;
+    rdfs:comment "A personal or official website."@en ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf foaf:homepage .
+
+mnh:email
+    a rdf:Property ;
+    rdfs:label "email"@en ;
+    rdfs:comment "The email address of a person."@en ;
+    rdfs:domain mnh:Human ;
+    rdfs:range xsd:string .
+
+mnh:worksFor
+    a rdf:Property ;
+    rdfs:label "works for"@en ;
+    rdfs:comment "Relates a person to an organisation they work for."@en ;
+    rdfs:domain mnh:Human ;
+    rdfs:range mnh:Organisation .
+
+mnh:interest
+    a rdf:Property ;
+    rdfs:label "interest"@en ;
+    rdfs:comment "Links a person to something they are interested in."@en ;
+    rdfs:domain mnh:Human .
+
+mnh:locatedAt
+    a rdf:Property ;
+    rdfs:label "located at"@en ;
+    rdfs:comment "Relates a resource to a place where it is located."@en ;
+    rdfs:range mnh:Location .
+
+mnh:equivalent
+    a rdf:Property ;
+    rdfs:label "equivalent"@en ;
+    rdfs:comment "Links a resource to an equivalent external identifier or concept."@en ;
+    rdfs:range rdfs:Resource .
+
+mnh:title
+    a rdf:Property ;
+    rdfs:label "title"@en ;
+    rdfs:comment "The title of a photograph."@en ;
+    rdfs:domain mnh:Photo ;
+    rdfs:range xsd:string .
+
+mnh:creator
+    a rdf:Property ;
+    rdfs:label "creator"@en ;
+    rdfs:comment "The creator or photographer of a photograph."@en ;
+    rdfs:domain mnh:Photo ;
+    rdfs:range mnh:Human .
+
+mnh:depicts
+    a rdf:Property ;
+    rdfs:label "depicts"@en ;
+    rdfs:comment "Relates an image to something it depicts."@en ;
+    rdfs:domain mnh:Photo ;
+    rdfs:subPropertyOf foaf:depicts .
+
+mnh:takenAt
+    a rdf:Property ;
+    rdfs:label "taken at"@en ;
+    rdfs:comment "Relates a photograph to the place where it was taken."@en ;
+    rdfs:domain mnh:Photo ;
+    rdfs:range mnh:Location .
+
+mnh:description
+    a rdf:Property ;
+    rdfs:label "description"@en ;
+    rdfs:comment "A textual description or summary."@en ;
+    rdfs:range xsd:string .
+
+mnh:accessAt
+    a rdf:Property ;
+    rdfs:label "access at"@en ;
+    rdfs:comment "A URL where the resource can be accessed."@en ;
+    rdfs:range xsd:anyURI .

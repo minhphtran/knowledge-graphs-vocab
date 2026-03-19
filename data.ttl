@@ -1,23 +1,89 @@
 @base <https://minhphtran.github.io/knowledge-graphs-vocab/data.ttl> .
 @prefix mnh: <https://minhphtran.github.io/knowledge-graphs-vocab/vocab.ttl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <#Minh>
-    a mnh:human ;                             
+    a mnh:Human ;                             
     mnh:name "Minh Tran" ;   
     mnh:email "minh.tran@rijksmuseum.nl" ;
-    mnh:worksFor mnh:Rijksmuseum ;
-    mnh:location "Warmenhuizen, North Holland" ;
+    mnh:worksFor <#Rijksmuseum> ;
+    mnh:locatedAt <#Warmenhuizen> ;
     mnh:knows 
         <https://jeroen-demeester.github.io/knowledge-graphs-vocab/data.ttl#Jeroen> , 
         <https://drsteiner.github.io/knowledgegraph/person.ttl#Steiny> ;
     mnh:interest 
-        mnh:cat ,
+        mnh:Cat ,
         "milk tea" ;
     mnh:website <https://minhphtran.github.io> ;
 .
 
-mnh:Rijksmuseum
-    a mnh:museum ;
-    mnh:location "Amsterdam, North Holland" ;   
+<#Rijksmuseum>
+    a mnh:Museum ;
+    mnh:locatedAt <#Amsterdam> ;   
 .                         
+
+<#photo1>
+    a mnh:Photo ;
+    mnh:title "By the river" ;
+    mnh:creator <#Ido> ;
+    mnh:depicts <#Minh> ;
+    mnh:takenAt <#QuangBinh> ;
+    mnh:description "Tijdens een wandeling in Quang Binh" ;
+    mnh:accessAt <https://imgur.com/a/cPaR4VM> ;
+.
+
+
+<#photo2>
+    a mnh:Photo ;
+    mnh:title "Bolletjescafé De Klok, Warmenhuizen" ;
+    mnh:creator <#Stacii> ;
+    mnh:depicts <#DeKlok> ;
+    mnh:takenAt <#Warmenhuizen> ;
+    mnh:description "De voorgevel van het café gedecoreerd met een patroon van rode bolletjes" ;
+    mnh:accessAt <https://www.rijksmuseum.nl/nl/collectie/object/NG-2021-1-14--ec1741983423fbd09d6b74d128781056> ;
+.
+
+
+<#Ido>
+    a mnh:Human ;
+    mnh:name "Ido de Baat" ;
+    mnh:locatedAt <#Warmenhuizen> ;
+.
+
+<#Stacii>
+    a mnh:Human ;
+    mnh:name "Stacii Samidin" ;
+    mnh:locatedAt <#Warmenhuizen> ;
+    mnh:equivalent <https://id.rijksmuseum.nl/210144111> ;
+.
+
+
+<#DeKlok>
+    a mnh:Café ;
+    mnh:name "Bolletjescafé De Klok" ;
+    mnh:locatedAt <#Warmenhuizen> ;
+.
+
+
+<#Warmenhuizen>
+    a mnh:Location ;
+    mnh:name "Warmenhuizen, Netherlands" ;
+    mnh:equivalent <http://vocab.getty.edu/tgn/1048219> ;
+.
+
+<#Amsterdam>
+    a mnh:Location ;
+    mnh:name "Amsterdam, Netherlands" ;
+    mnh:equivalent <http://vocab.getty.edu/tgn/7006952> ;
+.
+
+<#Rotterdam>
+    a mnh:Location ;
+    mnh:name "Rotterdam, Netherlands" ;
+    mnh:equivalent <http://vocab.getty.edu/tgn/7006792> ;
+.
+
+<#QuangBinh>
+    a mnh:Location ;
+    mnh:name "Quang Binh, Viet Nam" ;
+    mnh:equivalent <http://vocab.getty.edu/tgn/7594834> ;
+.
